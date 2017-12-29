@@ -89,6 +89,10 @@
 				@include button($main, darken($main, 20%));
 			}
 		}
+		li.clear {
+			cursor: pointer;
+			color: $main;
+		}
 	}
 //*============END CONTENT============*/
 

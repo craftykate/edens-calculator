@@ -17,6 +17,12 @@ class App extends Component {
     })
   }
 
+  resetList = () => {
+    this.setState({
+      previousEntries: []
+    })
+  }
+
   updateFraction = (event) => {
     if (event.key === 'Enter') {
       this.undoFraction();
@@ -70,9 +76,13 @@ class App extends Component {
   }
 
   renderEntries = () => {
-    return this.state.previousEntries.map((entry, i) => {
+    const renderedEntries = this.state.previousEntries.map((entry, i) => {
       return (<li key={i}>{entry[0]} = {entry[1]}</li>);
     })
+    if (renderedEntries.length > 0) {
+      renderedEntries.push(<li className="clear" onClick={this.resetList} key="hi">clear</li>);
+    }
+    return renderedEntries;
   }
 
   render() {
@@ -103,7 +113,9 @@ class App extends Component {
             </div>
             <p className="error">{this.state.errorMessage}</p>
             <p style={{textAlign: 'center', marginBottom: '3px', textDecoration: 'underline'}}>{allEntries}</p>
-            <ul>{this.renderEntries()}</ul>
+            <ul>
+              {this.renderEntries()}
+            </ul>
           </div>
         </div>
         <Footer />
