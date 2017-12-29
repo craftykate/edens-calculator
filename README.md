@@ -4,4 +4,4 @@ A _very_ simple calculator that takes an input of a fraction and converts it to 
 
 It has a simple display so it is easy to see and use on her phone. Press enter or click the button to calculate. At her request, previous entries are also displayed. They are sorted most recent on top. Error message displayed if you try to calculate with invalid input.
 
-<img src="src/Components/App/screenshot.jpg" alt="" width="400") />
+<img src="./src/Components/App/screenshot.jpg" alt="" width="400") />
