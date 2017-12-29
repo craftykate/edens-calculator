@@ -70,10 +70,14 @@
 			color: $text;
 		}
 		h3 {
-			margin-bottom: 10px;
 			font-size: 200%;
 			color: $accent;
 			font-weight: bold;
+		}
+		p.error {
+			text-align: center;
+			color: $accent;
+			font-size: 120%;
 		}
 		input {
 			font-size: 150%;

@@ -7,7 +7,14 @@ class App extends Component {
   state = {
     fraction: '',
     result: '',
-    errorMessage: ''
+    errorMessage: '',
+    previousEntries: []
+  }
+
+  reset = () => {
+    this.setState({
+      fraction: ''
+    })
   }
 
   updateFraction = (event) => {
@@ -41,9 +48,12 @@ class App extends Component {
       const denominator = fractionArray[1];
       const decimal = (numerator / denominator);
       const entireNumber = (Number(wholeNumber) + decimal).toFixed(2);
+      let entries = [...this.state.previousEntries];
+      entries.push([this.state.fraction, entireNumber]);
       if (!isNaN(entireNumber)) {
         this.setState({
-          result: entireNumber
+          result: entireNumber,
+          previousEntries: entries
         })
       } else {
         this.setState({
@@ -59,7 +69,15 @@ class App extends Component {
     }
   }
 
+  renderEntries = () => {
+    return this.state.previousEntries.map((entry, i) => {
+      return (<li key={i}>{entry[0]} = {entry[1]}</li>);
+    })
+  }
+
   render() {
+    let allEntries = null;
+    if (this.state.previousEntries.length > 0) allEntries = "All Entries:";
     return (
       <React.Fragment>
         <div id="wrapper">
@@ -69,6 +87,7 @@ class App extends Component {
               value={this.state.fraction}
               onChange={this.updateFraction}
               onKeyPress={this.updateFraction}
+              onFocus={this.reset}
               placeholder="press enter when done"
               />
             <div className="buttonHolder">
@@ -79,10 +98,12 @@ class App extends Component {
               </a>
             </div>
             <h2>Equals:</h2>
-            <div style={{height: 45}}>
+            <div style={{height: 40}}>
               <h3>{this.state.result}</h3>
             </div>
-            <h3>{this.state.errorMessage}</h3>
+            <p className="error">{this.state.errorMessage}</p>
+            <p style={{textAlign: 'center', marginBottom: '3px', textDecoration: 'underline'}}>{allEntries}</p>
+            <ul>{this.renderEntries()}</ul>
           </div>
         </div>
         <Footer />
