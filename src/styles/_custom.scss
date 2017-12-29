@@ -60,12 +60,12 @@
 	#content {
 		margin-bottom: 20px;
 		h1 {
-			margin: 20px 0;
+			margin: 10px 0;
 			font-size: 170%;
 			color: $text;
 		}
 		h2 {
-			margin: 20px 0;
+			margin: 20px 0 5px 0;
 			font-size: 150%;
 			color: $text;
 		}
@@ -78,6 +78,12 @@
 		input {
 			font-size: 150%;
 			color: $main;
+		}
+		div.buttonHolder {
+			margin-top: 20px;
+			a.button {
+				@include button($main, darken($main, 20%));
+			}
 		}
 	}
 //*============END CONTENT============*/

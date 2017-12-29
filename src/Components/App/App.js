@@ -71,6 +71,13 @@ class App extends Component {
               onKeyPress={this.updateFraction}
               placeholder="press enter when done"
               />
+            <div className="buttonHolder">
+              <a
+                onClick={this.undoFraction}
+                className="button">
+                Calculate
+              </a>
+            </div>
             <h2>Equals:</h2>
             <div style={{height: 45}}>
               <h3>{this.state.result}</h3>

@@ -16,7 +16,7 @@
 	@mixin round($curve: 10px) {
 		border-radius: $curve;
 	}
-	
+
 	// Applies boxshodow to element. Default set.
 	// ex: @include boxshadow; for default
 	// ex: @include boxshadow($main, 2px, 2px, 0px); to set each variable
@@ -24,12 +24,33 @@
 		-webkit-box-shadow: $color $horshad $vershad $blurshad $spreadshad;
 		box-shadow: $color $horshad $vershad $blurshad $spreadshad;
 	}
-	
+
 	// Applies inset boxshodow to element. Default set.
 	// ex: @include insetshadow; for default
 	// ex: @include insetshadow($main, 2px, 2px, 0px); to set each variable
 	@mixin insetshadow ($color: rgba(0,0,0,.3), $horshad: 0px, $vershad: 0px, $blurshad: 7px, $spreadshad: 1px) {
 		-webkit-box-shadow: inset $color $horshad $vershad $blurshad $spreadshad;
 		box-shadow: inset $color $horshad $vershad $blurshad $spreadshad;
+	}
+
+	// Applies button styling to links. Default set.
+	// ex: @include button; for default
+	// ex: @include button($main, pink) to set color and hover color)
+	@mixin button ($color: gray, $hover: darken(gray, 40%)) {
+		cursor: pointer;
+		margin: 0 auto;
+		text-align: center;
+		padding: .5em 1em;
+		border-radius: 10px;
+		background-color: $color;
+		text-align: center;
+		font-size: 1em;
+		transition: background-color .25s;
+		color: white;
+		outline: none;
+		text-decoration: none;
+		&:hover {
+			background-color: $hover;
+		}
 	}
 //*============ END MIXINS ============*/
