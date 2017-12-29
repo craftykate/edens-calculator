@@ -49,7 +49,7 @@ class App extends Component {
       const decimal = (numerator / denominator);
       const entireNumber = (Number(wholeNumber) + decimal).toFixed(2);
       let entries = [...this.state.previousEntries];
-      entries.push([this.state.fraction, entireNumber]);
+      entries.unshift([this.state.fraction, entireNumber]);
       if (!isNaN(entireNumber)) {
         this.setState({
           result: entireNumber,
