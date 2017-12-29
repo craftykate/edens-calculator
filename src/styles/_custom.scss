@@ -1,17 +1,16 @@
 //*============ MAIN PAGE ELEMENTS ============*/
 	body {
 		position:relative;
-		margin: 0 auto;
+		margin: 0;
+		padding: 0;
 		font-size: 100%;
-		// background-image:url(../img/background.jpeg);
-		// background-repeat:repeat;
 	}
 
 	#wrapper {
 		margin: 0 auto;
 		width: 90%;
 		max-width: 940px;
-		min-width: 600px;
+		text-align: center;
 	}
 
 	.clear {
@@ -21,36 +20,35 @@
 
 //*============ HEADER ============*/
 	header {
+		position: relative;
 		padding: 20px;
-		top: 0px;
-		background-color: rgba(255,255,255,0.9);
 		@include boxshadow;
 		h1 {
-			display: inline;
-			font-size: 200%;
-			a {
+			font: {
+				size: 2em;
 				color: $text;
-				text-decoration: none;
-				&:hover {
-					text-decoration: none;
-				}
 			}
 		}
-		// For side-by-side nav links at the top
 		ul {
 			position: relative;
-			top: 7px;
-			float: right;
+			margin-top: 7px;
 			li {
 				display: inline;
 				a {
 					color: $text;
 					text-decoration: none;
+					&:hover {
+						text-decoration: none;
+						color: $accent;
+					}
+					&.active {
+						color: $main;
+					}
 				}
 				&:not(:first-child) {
 					&::before {
 						content: " | ";
-						color: $main;
+						color: $text;
 					}
 				}
 			}
@@ -60,44 +58,50 @@
 
 //*============CONTENT============*/
 	#content {
-		h2 {
+		margin-bottom: 20px;
+		h1 {
 			margin: 20px 0;
 			font-size: 170%;
-			border-bottom: 1px solid $main;
+			color: $text;
 		}
-		form h2 {
-			border-bottom: 1px solid darken($main, 15%);
+		h2 {
+			margin: 20px 0;
+			font-size: 150%;
+			color: $text;
 		}
 		h3 {
 			margin-bottom: 10px;
+			font-size: 200%;
+			color: $accent;
+			font-weight: bold;
+		}
+		input {
 			font-size: 150%;
+			color: $main;
 		}
 	}
 //*============END CONTENT============*/
 
 //*============ FOOTER ============*/
 	footer {
-		padding: 15px;
-		background-color: $main;
-		color: white;
-		clear: both;
-		ul {
-			text-align: center;
-			li {
-				display: inline;
+	  border-top: 1px solid $main;
+	  margin-bottom: 30px;
+	  padding-top: 10px;
+	  text-align: center;
+	  clear: both;
+	  ul {
+	    li {
+	      display: inline;
 				&:not(:first-child) {
 					&::before {
 						content: " | ";
 						color: $text;
 					}
 				}
-			}
-		}
-		a, a:visited {
-			color: white;
-			text-decoration: underline;
-			&:hover, &:focus, &:active {
-			}
+	    }
+	  }
+		p {
+			text-align: center;
 		}
 	}
 //*============ END FOOTER ============*/
