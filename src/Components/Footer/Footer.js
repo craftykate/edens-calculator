@@ -1,8 +1,6 @@
 import React from 'react';
-import './Footer.css';
 
-// Pick one:
-// More complex
+
 const Footer = (props) => {
   return (
     <footer>
@@ -17,10 +15,3 @@ const Footer = (props) => {
 };
 
 export default Footer;
-
-// Simple rendering
-// const Footer = (props) => (
-//   <p>Footer</p>
-// );
-//
-// export default Footer;
